@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="wc.title" datatype="html">
+        <source>🌦️ Weather Dashboard</source>
+        <target>🌦️ Panel del Clima</target>
+      </trans-unit>
+      <trans-unit id="wc.toggleTheme" datatype="html">
+        <source>🌙 Night</source>
+        <target>🌙 Noche</target>
+      </trans-unit>
+      <trans-unit id="wc.toggleTheme2" datatype="html">
+        <source>☀️ Day</source>
+        <target>☀️ Día</target>
+      </trans-unit>
+      <trans-unit id="wc.createAccount" datatype="html">
+        <source>Create an account on Visual Crossing</source>
+        <target>Crear cuenta en Visual Crossing</target>
+      </trans-unit>
+      <trans-unit id="wc.enterKey" datatype="html">
+        <source>Enter your Visual Crossing API_KEY</source>
+        <target>Ingresa tu API_KEY de Visual Crossing</target>
+      </trans-unit>
+      <trans-unit id="wc.subtitle" datatype="html">
+        <source>Check the current weather and 24-hour forecast</source>
+        <target>Consulta el clima actual y el pronóstico de 24 horas</target>
+      </trans-unit>
+      <trans-unit id="wc.search" datatype="html">
+        <source>Search</source>
+        <target>Buscar</target>
+      </trans-unit>
+      <trans-unit id="wc.useMyLocation" datatype="html">
+        <source>My Location</source>
+        <target>Ubicación</target>
+      </trans-unit>
+      <trans-unit id="wc.refresh" datatype="html">
+        <source>Refresh</source>
+        <target>Actualizar</target>
+      </trans-unit>
+      <trans-unit id="wc.search.placeholder" datatype="html">
+        <source>City, address or lat,lng…</source>
+        <target>Ciudad, dirección o lat,lng…</target>
+      </trans-unit>
+      <trans-unit id="wc.loading" datatype="html">
+        <source>Fetching weather data...</source>
+        <target>Buscando datos del clima...</target>
+      </trans-unit>
+      <trans-unit id="wc.current" datatype="html">
+        <source>Current Conditions</source>
+        <target>Condiciones actuales</target>
+      </trans-unit>
+      <trans-unit id="wc.temp" datatype="html">
+        <source>Temperature</source>
+        <target>Temperatura</target>
+      </trans-unit>
+      <trans-unit id="wc.wind" datatype="html">
+        <source>Wind</source>
+        <target>Viento</target>
+      </trans-unit>
+      <trans-unit id="wc.rainProb" datatype="html">
+        <source>Rain Probability</source>
+        <target>Prob. lluvia</target>
+      </trans-unit>
+      <trans-unit id="wc.condition" datatype="html">
+        <source>Condition</source>
+        <target>Condición</target>
+      </trans-unit>
+      <trans-unit id="wc.last24" datatype="html">
+        <source>Last 24 Hours</source>
+        <target>Últimas 24 horas</target>
+      </trans-unit>
+      <trans-unit id="wc.next24" datatype="html">
+        <source>Next 24 Hours</source>
+        <target>Próximas 24 horas</target>
+      </trans-unit>
+      <trans-unit id="wc.noData" datatype="html">
+        <source>No data available.</source>
+        <target>No hay datos disponibles.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+
+<trans-unit id="wc.error.noApiKey" datatype="html">
+  <source>Please enter your API_KEY first</source>
+  <target>Primero ingresa tu API_KEY</target>
+</trans-unit>
+
+<trans-unit id="wc.error.noLocation" datatype="html">
+  <source>Could not get location</source>
+  <target>No se pudo obtener la ubicación</target>
+</trans-unit>
+
+<trans-unit id="wc.error.limit" datatype="html">
+  <source>⚠️ Maximum daily cost exceeded. Please create a Visual Crossing account and generate your own API Key.</source>
+  <target>⚠️ Se superó el costo diario máximo. Por favor crea una cuenta en Visual Crossing y genera tu propia API Key.</target>
+</trans-unit>
+
+<trans-unit id="wc.error.generic" datatype="html">
+  <source>Error</source>
+  <target>Error</target>
+</trans-unit>

@@ -1,0 +1,100 @@
+<div class="app-wrapper" [ngClass]="theme()">
+  <header class="app-header d-flex justify-content-between align-items-center px-4 py-3">
+    <h2 class="app-title" i18n="@@wc.title">🌦️ Weather Dashboard</h2>
+    <div class="header-actions d-flex align-items-center gap-3">
+      <button type="button" class="btn header-btn theme-btn" (click)="toggleTheme()" i18n="@@wc.toggleTheme">
+        {{ theme() === 'light' ? '🌙 Night' : '☀️ Day' }}
+      </button>
+    </div>
+  </header>
+
+  <main class="container py-4">
+    <div class="text-center mb-3">
+      <a href="https://www.visualcrossing.com/sign-up/" target="_blank" class="btn btn-link" i18n="@@wc.createAccount">
+        Create an account on Visual Crossing
+      </a>
+    </div>
+    <p class="subtitle text-center mb-4" i18n="@@wc.enterKey">Enter your Visual Crossing API_KEY</p>
+
+    <div class="text-center mb-5">
+      <input type="text" class="form-control custom-input mx-auto" style="max-width: 400px;"
+        placeholder="🔑 API_KEY" [ngModel]="apiKey()" (ngModelChange)="saveApiKey($event)" />
+    </div>
+
+    <label class="subtitle text-center mb-5 ml-5" i18n="@@wc.subtitle">
+      Check the current weather and 24-hour forecast
+    </label>
+
+    <form class="search-box mb-5" (ngSubmit)="search()">
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <input type="text" class="form-control custom-input flex-grow-1" style="max-width: 400px;"
+          i18n-placeholder="@@wc.search.placeholder" placeholder="City, address or lat,lng…" [ngModel]="query()"
+          (ngModelChange)="query.set($event)" name="q" autocomplete="off" />
+        <button type="submit" class="btn fancy-btn primary" i18n="@@wc.search">Search</button>
+        <button type="button" class="btn fancy-btn secondary" (click)="useMyLocation()" i18n="@@wc.useMyLocation">
+          My Location
+        </button>
+        <button type="button" class="btn fancy-btn warning" (click)="refresh()" i18n="@@wc.refresh">Refresh</button>
+      </div>
+    </form>
+
+    <div *ngIf="loading()" class="loading-wrapper" @fade>
+      <div class="loading-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class="mt-3" i18n="@@wc.loading">Fetching weather data...</p>
+    </div>
+
+    <div *ngIf="error()" class="alert alert-danger text-center" @fade>{{ error() }}</div>
+
+    <ng-container *ngIf="hasData() && !loading(); else empty">
+      <article class="card weather-card mb-5" @fade>
+        <div class="card-body text-center">
+          <h2 class="section-title" i18n="@@wc.current">Current Conditions</h2>
+          <h4 class="address">{{ data()?.resolvedAddress }}</h4>
+
+          <div class="conditions-grid mt-4">
+            <div class="condition"><label i18n="@@wc.temp">Temperature</label><span>{{ data()?.currentConditions?.temp }} °C</span></div>
+            <div class="condition"><label i18n="@@wc.wind">Wind</label><span>{{ data()?.currentConditions?.windspeed }} km/h</span></div>
+            <div class="condition"><label i18n="@@wc.rainProb">Rain Probability</label>
+              <span>{{ (data()?.currentConditions?.precipprob ?? 0) | number:'1.0-0' }}%</span></div>
+            <div class="condition"><label i18n="@@wc.condition">Condition</label>
+              <span>{{ data()?.currentConditions?.conditions }}</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card weather-card mb-5" @slideUp>
+        <div class="card-body">
+          <h3 class="section-title" i18n="@@wc.last24">Last 24 Hours</h3>
+          <div class="hours-grid">
+            <div class="hour" *ngFor="let h of data()?.hoursPrev24">
+              <span class="time">{{ h.datetime | date:'shortTime' }}</span>
+              <span class="temp">{{ h.temp }} °C</span>
+              <span class="rain">{{ (h.precipprob ?? 0) | number:'1.0-0' }}%</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card weather-card mb-5" @slideUp>
+        <div class="card-body">
+          <h3 class="section-title" i18n="@@wc.next24">Next 24 Hours</h3>
+          <div class="hours-grid">
+            <div class="hour" *ngFor="let h of data()?.hoursNext24">
+              <span class="time">{{ h.datetime | date:'shortTime' }}</span>
+              <span class="temp">{{ h.temp }} °C</span>
+              <span class="rain">{{ (h.precipprob ?? 0) | number:'1.0-0' }}%</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </ng-container>
+
+    <ng-template #empty>
+      <p class="muted text-center mt-4" i18n="@@wc.noData">No data available.</p>
+    </ng-template>
+  </main>
+</div>

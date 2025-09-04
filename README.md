@@ -1,125 +1,108 @@
-# WeatherApp
+# 🌦️ WeatherApp
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 20.2.2.  
-Es un panel simple del clima que consume la **[Visual Crossing Weather API](https://www.visualcrossing.com/weather-api)** para mostrar el clima actual y el pronóstico.
+Aplicación de clima desarrollada en **Angular 20**, con soporte de internacionalización (i18n) y empaquetada con **Docker** para despliegue sencillo.
 
 ---
 
-## Servidor de desarrollo
+## 🚀 Instalación del proyecto
 
-Para iniciar un servidor local de desarrollo, ejecuta:
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/valen715/weather-project.git
+cd weather-project
+```
 
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Ejecutar en modo desarrollo:
 ```bash
 ng serve
 ```
-
-Una vez iniciado, abre tu navegador y navega a `http://localhost:4200/`.  
-La aplicación se recargará automáticamente cada vez que modifiques los archivos fuente.
+Abrir en el navegador 👉 `http://localhost:4200/`
 
 ---
 
-## Generación de componentes
+## 📦 Librerías utilizadas
 
-Angular CLI incluye herramientas poderosas de generación de código. Para crear un nuevo componente, ejecuta:
+El proyecto usa las siguientes librerías principales:
 
 ```bash
-ng generate component nombre-componente
+npm install @angular/animations @angular/common @angular/compiler @angular/core @angular/forms @angular/platform-browser @angular/router
+npm install bootstrap
+npm install rxjs tslib zone.js
 ```
 
-Para ver la lista completa de esquemas disponibles (como `components`, `directives` o `pipes`), ejecuta:
-
+Para desarrollo:
 ```bash
-ng generate --help
-```
-
----
-
-## Compilación del proyecto
-
-Para compilar el proyecto ejecuta:
-
-```bash
-ng build
-```
-
-Esto compilará tu proyecto y almacenará los artefactos en el directorio `dist/`.  
-Por defecto, la compilación en producción optimiza la aplicación para mayor velocidad y rendimiento.
-
----
-
-## Pruebas unitarias
-
-Para ejecutar las pruebas unitarias con el [Karma](https://karma-runner.github.io) test runner:
-
-```bash
-ng test
+npm install -D @angular/cli @angular/build @angular/compiler-cli @angular/localize typescript jasmine-core karma karma-chrome-launcher karma-coverage karma-jasmine karma-jasmine-html-reporter
 ```
 
 ---
 
-## Pruebas end-to-end
+## 🔑 Uso de la API (Visual Crossing)
 
-Para ejecutar pruebas end-to-end (e2e):
+1. Regístrate gratis en 👉 [Visual Crossing](https://www.visualcrossing.com/sign-up/).
+2. Genera una **API_KEY** en tu cuenta.
+3. Copia y pega la API_KEY en la interfaz de la aplicación (campo de texto con el ícono 🔑).
+4. ⚠️ **Importante**: la cuenta gratuita tiene un **LIMITE DE CONSULTAS DIARIAS**.
 
+---
+
+## 🐳 Configuración con Docker
+
+1. Construir la imagen:
 ```bash
-ng e2e
+docker build -t weather-dashboard .
 ```
 
-Angular CLI no incluye por defecto un framework de pruebas e2e, puedes elegir el que prefieras.
-
----
-
-## Uso de la API (Visual Crossing)
-
-1. Regístrate en [Visual Crossing](https://www.visualcrossing.com/sign-up/).  
-2. Copia tu **API_KEY** desde el panel de usuario.  
-3. Pega la API_KEY en la interfaz de la aplicación cuando se solicite.  
-
-⚠️ **Importante**: El plan gratuito tiene un **límite diario de consultas**.  
-Si aparece el mensaje `"Maximum daily cost exceeded"`, significa que alcanzaste el límite.
-
----
-
-## Configuración con Docker
-
-Puedes ejecutar la aplicación dentro de un contenedor Docker para producción.
-
-### Construir la imagen:
+2. Ejecutar el contenedor:
 ```bash
-docker build -t weather-project .
+docker run -d -p 8080:80 weather-dashboard
 ```
 
-### Ejecutar el contenedor:
-```bash
-docker run -d -p 8080:80 weather-project
-```
-
-Luego abre en el navegador:  
-👉 [http://localhost:8080](http://localhost:8080)
+3. Abrir en el navegador 👉 `http://localhost:8080/`
 
 ---
 
-## Capturas de pantalla
+## 🖼️ Capturas de pantalla
 
-Agrega tus capturas en la carpeta `docs/` y enlázalas aquí.
+Ejemplo:
 
-- Pantalla principal  
-  ![Home Screenshot](docs/home.png)
+- Página principal con búsqueda de ciudades en PC
+  - Modo Claro
+<img width="1910" height="1004" alt="image" src="https://github.com/user-attachments/assets/51058c87-c86f-4383-ace3-e66b9aec8aed" />
+  - Modo Oscuro
+<img width="1913" height="1007" alt="image" src="https://github.com/user-attachments/assets/a9ffcc1e-c2c0-4089-a474-d95fe4957313" />
 
-- Modo oscuro  
-  ![Dark Mode Screenshot](docs/darkmode.png)
+- Página principal con búsqueda de ciudades en Movil
+  - Modo Claro
+<img width="454" height="810" alt="image" src="https://github.com/user-attachments/assets/5e124897-a95e-4314-aa07-9eb9ae367631" />
+  - Modo Oscuro
+<img width="452" height="807" alt="image" src="https://github.com/user-attachments/assets/46680c2e-2119-40c0-b4c7-19800b3b1b1e" />
 
-- Error de límite de API  
-  ![Error Screenshot](docs/error.png)
+- Vista de pronóstico de 24 horas en PC
+  - Modo Claro
+<img width="1912" height="1014" alt="image" src="https://github.com/user-attachments/assets/fc85bb45-f733-43a6-8f93-71eb429d39c9" />
 
+  - Modo Oscuro
+<img width="1915" height="1014" alt="image" src="https://github.com/user-attachments/assets/4133015c-fdca-4904-b991-0c12538d2260" />
+
+
+- Vista de pronóstico de 24 horas en Movil
+  - Modo Claro
+<img width="454" height="803" alt="image" src="https://github.com/user-attachments/assets/e1b7a0ab-d877-4923-a5bf-ac92d2f2696d" />
+
+  - Modo Oscuro
+<img width="460" height="803" alt="image" src="https://github.com/user-attachments/assets/4c6233ba-aba6-409f-b59e-3ab41b61386d" />
 ---
 
-## Recursos adicionales
+## ⚡ Resumen
 
-- [Angular CLI - Documentación oficial](https://angular.dev/tools/cli)  
-- [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api)  
-- [Docker - Documentación oficial](https://docs.docker.com/)  
+- Angular 20 + Bootstrap 5  
+- Internacionalización (i18n) lista para español e inglés  
+- Integración con API externa (**Visual Crossing**)  
+- Despliegue rápido con **Docker**  
 
----
-
-# Weather-project
